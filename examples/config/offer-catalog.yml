@@ -1,0 +1,12 @@
+app:
+  catalogs:
+    offers:
+      - code: FREE_WORKFLOW_CHECKLIST
+        name: Free workflow checklist
+        destination-url: https://example.com/workflow-checklist
+        supported-countries: [US, NP, IN, GB]
+        approved-claims:
+          - Free checklist for practical coding workflows
+        terms-review-date: 2026-10-21
+        disclosure: No paid recommendation; free resource.
+        enabled: false

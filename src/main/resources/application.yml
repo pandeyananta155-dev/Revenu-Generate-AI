@@ -1,0 +1,191 @@
+spring:
+  application:
+    name: trend-to-revenue
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 1MB
+
+server:
+  address: 127.0.0.1
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  name: Trend-to-Revenue AI Factory
+  version: 0.1.0
+  data-directory: ${APP_DATA_DIRECTORY:./data}
+  catalogs:
+    markets:
+      - code: US
+        name: United States
+        country-code: US
+        language: en
+        timezone: America/New_York
+      - code: NP
+        name: Nepal
+        country-code: NP
+        language: en
+        timezone: Asia/Kathmandu
+      - code: IN
+        name: India
+        country-code: IN
+        language: en
+        timezone: Asia/Kolkata
+      - code: GB
+        name: United Kingdom
+        country-code: GB
+        language: en
+        timezone: Europe/London
+    niches:
+      - code: AI_DEV_TOOLS
+        name: AI and Developer Tools
+        description: AI tools, coding assistants, and developer workflows
+      - code: TECH_GENERAL
+        name: General Technology
+        description: Practical technology explainers
+      - code: NEPAL_DIGITAL
+        name: Nepal Digital
+        description: Digital products and technology relevant to Nepal
+    providers:
+      - code: GOOGLE_TRENDS
+        name: Google Trends
+        source-type: GOOGLE_TRENDS
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: true
+          scoring: true
+          content-grounding: false
+          media-download: false
+        terms-url: https://support.google.com/trends/answer/3076011
+        terms-review-date: 2026-10-21
+        retention-days: 30
+        required-approvals: []
+        secret-environment-variables: []
+      - code: OFFICIAL_FEEDS
+        name: Approved publisher feeds
+        source-type: RSS_ATOM
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: true
+          scoring: true
+          content-grounding: true
+          media-download: false
+        terms-url: https://www.rssboard.org/rss-specification
+        terms-review-date: 2026-10-21
+        retention-days: 30
+        required-approvals: []
+        secret-environment-variables: []
+      - code: MANUAL_RESEARCH
+        name: Manual research notes
+        source-type: MANUAL
+        endpoint-urls: []
+        enabled: true
+        permissions:
+          display: true
+          scoring: true
+          content-grounding: true
+          media-download: false
+        terms-url: https://example.com/manual-research-policy
+        terms-review-date: 2026-10-21
+        retention-days: 365
+        required-approvals: []
+        secret-environment-variables: []
+      - code: YOUTUBE_WATCHLIST
+        name: YouTube watchlist metadata
+        source-type: YOUTUBE_API
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: true
+          scoring: false
+          content-grounding: false
+          media-download: false
+        terms-url: https://developers.google.com/youtube/terms/developer-policies
+        terms-review-date: 2026-10-21
+        retention-days: 30
+        required-approvals: []
+        secret-environment-variables:
+          - YOUTUBE_API_KEY
+        youtube-derived-metrics-approval-reference:
+      - code: GDELT_NEWS
+        name: GDELT news coverage
+        source-type: GDELT
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: true
+          scoring: false
+          content-grounding: false
+          media-download: false
+        terms-url: https://www.gdeltproject.org/about.html
+        terms-review-date: 2026-10-21
+        retention-days: 30
+        required-approvals: []
+        secret-environment-variables: []
+      - code: REDDIT_RESEARCH
+        name: Reddit Data API
+        source-type: REDDIT
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: false
+          scoring: false
+          content-grounding: false
+          media-download: false
+        terms-url: https://redditinc.com/policies/developer-terms
+        terms-review-date: 2026-10-21
+        retention-days: 0
+        required-approvals:
+          - Written commercial permission and approved credentials are required.
+        secret-environment-variables: []
+        reddit-commercial-permission-reference:
+    offers:
+      - code: FREE_WORKFLOW_CHECKLIST
+        name: Free workflow checklist
+        destination-url: https://example.com/workflow-checklist
+        supported-countries: [US, NP, IN, GB]
+        approved-claims: [Free checklist for practical coding workflows]
+        terms-review-date: 2026-10-21
+        disclosure: No paid recommendation; free resource.
+        enabled: false
+    youtube-watchlist:
+      channel-ids: []
+
+discovery:
+  max-results-per-scan: 50
+  max-csv-bytes: 1048576
+  max-feed-bytes: 1048576
+  request-timeout: 5s
+  rss-refresh-interval: 15m
+  default-keywords: [technology]
+  niche-keywords:
+    AI_DEV_TOOLS: [AI coding assistant, code generation tool, developer AI]
+    TECH_GENERAL: [technology trends, consumer technology, software tools]
+    NEPAL_DIGITAL: [Nepal digital services, Nepal technology, digital payments Nepal]
+  gdelt:
+    enabled: false
+    base-url: https://api.gdeltproject.org/api/v2/doc/doc
+    request-interval: 15s
+  youtube:
+    enabled: false
+    api-key-environment-variable: YOUTUBE_API_KEY
+    max-requests-per-scan: 2
+    daily-quota-unit-budget: 10000
+    retention-days: 30
+  rss:
+    allow-private-addresses-for-development: false
+
+watchlists:
+  max-videos-per-refresh: 25
+  history-retention-days: 30
+  sources: []
+
+logging:
+  level:
+    com.revenugenereate: INFO

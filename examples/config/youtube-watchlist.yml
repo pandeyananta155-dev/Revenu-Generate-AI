@@ -1,0 +1,4 @@
+app:
+  catalogs:
+    youtube-watchlist:
+      channel-ids: []

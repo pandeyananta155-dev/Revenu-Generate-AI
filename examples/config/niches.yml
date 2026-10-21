@@ -1,0 +1,12 @@
+app:
+  catalogs:
+    niches:
+      - code: AI_DEV_TOOLS
+        name: AI and Developer Tools
+        description: AI tools, coding assistants, and developer workflows
+      - code: TECH_GENERAL
+        name: General Technology
+        description: Practical technology explainers
+      - code: NEPAL_DIGITAL
+        name: Nepal Digital
+        description: Digital products and technology relevant to Nepal

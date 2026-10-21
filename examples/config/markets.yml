@@ -1,0 +1,23 @@
+app:
+  catalogs:
+    markets:
+      - code: US
+        name: United States
+        country-code: US
+        language: en
+        timezone: America/New_York
+      - code: NP
+        name: Nepal
+        country-code: NP
+        language: en
+        timezone: Asia/Kathmandu
+      - code: IN
+        name: India
+        country-code: IN
+        language: en
+        timezone: Asia/Kolkata
+      - code: GB
+        name: United Kingdom
+        country-code: GB
+        language: en
+        timezone: Europe/London

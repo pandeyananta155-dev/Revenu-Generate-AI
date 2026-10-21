@@ -1,0 +1,81 @@
+app:
+  catalogs:
+    providers:
+      - code: GOOGLE_TRENDS
+        name: Google Trends
+        source-type: GOOGLE_TRENDS
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: true
+          scoring: true
+          content-grounding: false
+          media-download: false
+        terms-url: https://support.google.com/trends/answer/3076011
+        terms-review-date: 2026-10-21
+        retention-days: 30
+        required-approvals: []
+        secret-environment-variables: []
+      - code: OFFICIAL_FEEDS
+        name: Approved publisher feeds
+        source-type: RSS_ATOM
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: true
+          scoring: true
+          content-grounding: true
+          media-download: false
+        terms-url: https://www.rssboard.org/rss-specification
+        terms-review-date: 2026-10-21
+        retention-days: 30
+        required-approvals: []
+        secret-environment-variables: []
+      - code: MANUAL_RESEARCH
+        name: Manual research notes
+        source-type: MANUAL
+        endpoint-urls: []
+        enabled: true
+        permissions:
+          display: true
+          scoring: true
+          content-grounding: true
+          media-download: false
+        terms-url: https://example.com/manual-research-policy
+        terms-review-date: 2026-10-21
+        retention-days: 365
+        required-approvals: []
+        secret-environment-variables: []
+      - code: REDDIT_RESEARCH
+        name: Reddit Data API
+        source-type: REDDIT
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: false
+          scoring: false
+          content-grounding: false
+          media-download: false
+        terms-url: https://support.reddithelp.com/hc/en-us/articles/14945211791892-Developer-Platform-Accessing-Reddit-Data
+        terms-review-date: 2026-10-21
+        retention-days: 0
+        required-approvals: []
+        secret-environment-variables: []
+        reddit-commercial-permission-reference:
+      - code: YOUTUBE_WATCHLIST
+        name: YouTube watchlist metadata
+        source-type: YOUTUBE_API
+        endpoint-urls: []
+        enabled: false
+        permissions:
+          display: true
+          scoring: false
+          content-grounding: false
+          media-download: false
+        terms-url: https://developers.google.com/youtube/terms/developer-policies
+        terms-review-date: 2026-10-21
+        retention-days: 30
+        required-approvals: []
+        secret-environment-variables:
+          - YOUTUBE_API_KEY
+        youtube-derived-metrics-approval-reference:
